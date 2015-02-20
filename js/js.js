@@ -19,6 +19,7 @@ var gitSearch = {
         gitSearch.getRepos(query);
       }
       else {
+        $('#loader, #image, #info, #repo_list').hide();
         $('#warning').show();
       }
     });
