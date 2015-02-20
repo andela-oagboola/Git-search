@@ -41,9 +41,7 @@ var gitSearch = {
       $('#info').html("<h3>Followers: " + followers + "<br><br>Following: " + following + "<br><br>Number of repositories: " + numOfRepos + "<br><br>Number of organisations: " + organization + "</h3>");
     }).fail(function(err) {
       if(err.status === 404) {
-        $('#loader').hide();
-          $('#image').hide();
-        $('#info').hide();
+        $('#loader, #image, #info, #repo_list').hide();
         $('#error').html("<p>profile doesnt exist</p>").show();
         //alert("profile doesnt exist");
       }
