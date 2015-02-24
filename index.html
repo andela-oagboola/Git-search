@@ -1,23 +1,49 @@
-<html>
-  <head>
-    <title></title>
-    <link rel="stylesheet" href="css/style.css">
-    <script src="js/jquery-1.11.2.min.js"></script>
-    <script src="js/js.js"></script>
-  </head>
-  <body>
-    <div id="appName" class="alldivs">GITHUB PROFILE SEARCH</div>
-    <div id="userInput" class="alldivs">
-      <input type="text" id="textbox">
-      <input type="submit" value="Search" id="searchButton">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title></title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="style/css/css.css">
+  <link rel="stylesheet" type="text/css" href="style/css/bootstrap.css">
+  <script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>
+  <script type="text/javascript" src="js/js.js"></script>
+</head>
+<body>
+  <div id="nav-bar" class="container">
+    <div id="logo">GITHUB PROFILER</div>
+    <ul id="info-box" class="list-group">
+      <li id="pix">
+        <img src="style/images/github-icon.png" class="img-responsive img-circle" id="image"/>
+      </li>
+      <li class="list-group-item" id="name">
+        <i class="fa fa-user"></i>  username
+      </li>
+      <li class="list-group-item">
+        <a href="#" id="pub_repos"><i class="fa fa-folder-open" ></i> Public Repositories <span class="badge"></span></a>
+      </li>
+      <li class="list-group-item">
+        <a href="#" id="followers"><i class="fa fa-user-plus"></i>  Followers <span class="badge"></span></a>
+      </li>
+      <li class="list-group-item">
+        <a href="#" id="following"><i class="fa fa-user-plus"></i>  Following <span class="badge"></span></a>
+      </li>
+      <li class="list-group-item">
+        <a href="#" id="repo"><i class="fa fa-briefcase"></i>  Number of Repositories <span class="badge"></span></a>
+      </li>
+      <li class="list-group-item">
+        <a href="#" id="orgz"><i class="fa fa-university"></i>  Organizations <span class="badge"></span></a>
+      </li>
+    </ul>
+  </div>
+  <div id="view">
+    <div class="search-bar">
+      <div class="form-group, pull-right" class="user-input">
+        <input type="text" placeholder="Search" id="textbox">
+        <button type="button" class="btn btn-primary" id="searchButton">Search</button>
+      </div>
     </div>
-    <div id="wholebody">
-      <div id="image" class="alldivs"></div>
-      <div id="info" class="alldivs"></div>
-      <div id="repo_list" class="alldivs"><span>List of Repositories</span><br><ul></ul></div>
-      <div id="warning" class="alldivs">The search box cannot be empty</div>
-      <div id="loader"><img src="images/loading (1).gif"></div>
-      <div id="error" class="alldivs"></div>
-    </div>
-  </body>
+    <div class="output" id="repo_list">List of Repositiories<ul class="list-group"></ul></div>
+  </div>
+</body>
 </html>

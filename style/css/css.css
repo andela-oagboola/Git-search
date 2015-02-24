@@ -1,0 +1,71 @@
+#nav-bar {
+ /* border: 2px solid black;*/
+ background-color: white;
+ position: fixed;
+ left: 0;
+ top: 0;
+ bottom: 0;
+ width: 400px;
+ font-size: 25px;
+}
+#repo_list {
+   border: 2px solid black;
+   border-radius: 10px;
+   text-align: center;
+   font-size: 25px;
+   display: none;
+}
+#out{
+  border: 2px solid black;
+}
+#info-box img {
+  /*margin-top: 20px;*/
+  width: 200px;
+  height: 200px;
+  margin: auto;
+  /*border-radius: 50px;*/
+}
+#logo {
+  margin: 10px;
+}
+#view .search-bar {
+  position: fixed;
+  height: 70px;
+  left: 400px;
+  top: 0;
+  right: 0;
+  background-color: #0C2466;
+  padding-top: 15px;
+  opacity: 0.3;
+}
+#view .user-input {
+  right: 100px;
+  width: 400px;
+}
+#userInput {
+  width: 300px;
+}
+#view {
+  position: absolute;
+  left: 400px;
+  top:0;
+  right: 0;
+  bottom: 0;
+}
+#view .search-bar:hover {
+  opacity: 1;
+}
+#view .output {
+  margin: 200px 200px;
+  bottom: 0;
+  right: 0;
+  background-color: white;
+}
+#repo_list ul li {
+  list-style: none;
+  padding: 5px;
+  font-size: 20px;
+}
+#repo_list ul {
+  text-align: center;
+}

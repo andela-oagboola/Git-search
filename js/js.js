@@ -9,6 +9,7 @@ var gitSearch = {
 
     getEntry: function() {
     $('#searchButton').click(function() {
+      console.log("hello");
       $('#repo_list ul').empty();
       var query = $('#textbox').val();
       if( query != "") {
@@ -17,6 +18,7 @@ var gitSearch = {
         $('#loader').show();        
         gitSearch.getuserInfo(query);        
         gitSearch.getRepos(query);
+        console.log(query);
       }
       else {
         $('#loader, #image, #info, #repo_list').hide();
@@ -30,16 +32,26 @@ var gitSearch = {
       
     $.getJSON(gitSearch.gitbase + "users/" + username + "?client_id=" + gitSearch.clientID + "&client_secret=" + gitSearch.clientSecret, function(response) {
       $('#textbox').val("");
+      console.log(response);
       var organization = gitSearch.getOrganisations(username);
+      var name = response.name;
       var avatar = response.avatar_url;
       var followers = response.followers;
       var following = response.following;
       var numOfRepos = response.public_repos;
+      var org = response.company
+      //console.log(org);
       $('#loader').hide();
       $('#image').show();
       $('#info').show();
-      $('#image').html("<img src=" + avatar + "/>");
-      $('#info').html("<h3>Followers: " + followers + "<br><br>Following: " + following + "<br><br>Number of repositories: " + numOfRepos + "<br><br>Number of organisations: " + organization + "</h3>");
+      //$('#image').html("<img src=" + avatar + "/>");
+      $('img').attr('src',avatar).addClass("img-responsive").addClass("img-rounded");
+      $('#name').html("  Name: " + name);
+      $('#repo span').html("  Public Repositories: ");
+      $('#followers span').html(followers);
+      $('#following span').html(following);
+      $('#repo span').html(numOfRepos);
+      $('#orgz span').html(organization);
     }).fail(function(err) {
       if(err.status === 404) {
         $('#loader, #image, #info, #repo_list').hide();
@@ -57,15 +69,27 @@ var gitSearch = {
         $('#error').html("<p>Could not process request, are you connected to the internet?</p>").show();
       }
     });
+    gitSearch.styleResult();
   },
-
+  styleResult: function() {
+    //console.log("hjsdghhjsagdsadsd")
+    $("#name").addClass("fa fa-user");
+    $('#pub_repo').addClass("fa fa-folder-open");
+    $('#follower').addClass("fa fa-user-plus");
+    $('#following').addClass("fa fa-user-plus");
+    $('#repo_num').addClass("fa fa-briefcase");
+    $('#org_num').addClass("fa fa-university");
+  },
   getRepos: function(user) {
     $.getJSON(gitSearch.gitbase + "users/" + user + "/repos?client_id=" + gitSearch.clientID + "&client_secret=" + gitSearch.clientSecret, function(data) {
       $.each(data, function(index,value) {
         var repolist = data[index].clone_url;
         var repoName = data[index].full_name;
-        $('#repo_list').show();
+        //$('#repo_list').show();
         $('#repo_list ul').append("<li><a href=" + repolist + " target=blank>" + repoName + "</a></li><br>");
+        $('li #pub_repos').click(function() {
+          $('#repo_list').show();
+        })
       });
     });
   },
